@@ -7,9 +7,14 @@
 
 import Foundation
 
-public class Shell {
+class Command {var cmd: String = "" }
+
+class Shell {
+    let VERSION = 4.1
     init() {
+        print("Shift version", VERSION)
         self.m_Echo = Echo(input: m_command)
+        self.m_Help = Help(input: m_command)
         m_username = "["
         print("username:", terminator: "")
         if let str = readLine() {
@@ -18,17 +23,7 @@ public class Shell {
         m_username.append(contentsOf: "]$")
     }
     
-    private func help() {
-        print("help - show this and the following commands")
-        print("echo - prints a message")
-        print("gtn - Guess the number")
-        print("hc - Hot-cold")
-        print("exit - it's obvious")
-    }
-    
     func shell() {
-        let version = 4.0
-        print("Improvised shell version", version)
         repeat {
             print(m_username, terminator: " ")
             if let str = readLine() {
@@ -36,7 +31,7 @@ public class Shell {
             }
             switch m_command.cmd {
             case "help":
-                help()
+                m_Help.help(allOfThem: true)
                 break
             case "gtn":
                 m_Gtn.gtn()
@@ -44,13 +39,21 @@ public class Shell {
             case "hc":
                 m_Hc.hc()
                 break
+            case "echo":
+                print()
+                break
             case "exit":
                 print("goodbye")
                 break
+            case "version":
+                print("Shift version", VERSION)
+                break
             default:
-                if (m_command.cmd.contains("echo ")) {
+                if m_command.cmd.contains("echo ") {
                     m_Echo.echo()
-                } else {
+                }  else if m_command.cmd.contains("help ") {
+                    m_Help.help(allOfThem: false)
+                }else {
                     print("unknown command")
                 }
             }
@@ -61,4 +64,5 @@ public class Shell {
     private let m_Gtn = Gtn();
     private let m_Hc = Hc();
     private let m_Echo: Echo
+    private let m_Help: Help;
 }

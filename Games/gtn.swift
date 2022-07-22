@@ -8,7 +8,7 @@
 import Foundation
 import Darwin
 
-public class Gtn {
+class Gtn {
     func gtn() {
         let version = 1.0;
         print("Guess the number version", version)

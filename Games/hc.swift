@@ -8,7 +8,7 @@
 import Foundation
 import Darwin
 
-public class Hc {
+class Hc {
     func hc() {
         let version = 1.0;
         print("Hot-cold version", version)

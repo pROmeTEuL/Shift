@@ -7,10 +7,8 @@
 
 import Foundation
 
-class Command {var cmd: String = "" }
-
-public class Echo {
-    var m_input: Command;// ""
+class Echo {
+    var m_input: Command;
     init(input: Command) {
         m_input = input;
     }
