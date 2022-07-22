@@ -7,3 +7,5 @@
 
 import Foundation
 
+let main = Shell()
+main.shell()
