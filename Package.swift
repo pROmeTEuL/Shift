@@ -8,6 +8,6 @@ let package = Package(
     targets: [
         .executableTarget(
            name: "main",
-           path: ""), //path for target to look for sources
+           path: "")
     ]
 )
