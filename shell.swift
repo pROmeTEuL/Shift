@@ -10,7 +10,7 @@ import Foundation
 class Command {var cmd: String = "" }
 
 class Shell {
-    let VERSION = 5.0
+    let VERSION = 5.1
     init() {
         print("Shift version", VERSION)
         self.m_Echo = Echo(input: m_command)
@@ -50,7 +50,7 @@ class Shell {
                 print("Shift version", VERSION)
                 break
             case "calc":
-                print(m_Calc.calc(GivenExp: false))
+                print("Please give an expression!")
                 break
             default:
                 if m_command.cmd.contains("echo ") {
@@ -58,7 +58,7 @@ class Shell {
                 }  else if m_command.cmd.contains("help ") {
                     m_Help.help(allOfThem: false)
                 } else if m_command.cmd.contains("calc ") {
-                    print(m_Calc.calc(GivenExp: true))
+                    print(m_Calc.calc())
                 } else {
                     print("unknown command")
                 }
