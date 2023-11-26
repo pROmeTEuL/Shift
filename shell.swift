@@ -10,12 +10,13 @@ import Foundation
 class Command {var cmd: String = "" }
 
 class Shell {
-    let VERSION = 5.1
+    let VERSION = 6.0
     init() {
         print("Shift version", VERSION)
         self.m_Echo = Echo(input: m_command)
         self.m_Help = Help(input: m_command)
         self.m_Calc = Calc(input: m_command)
+        self.m_Run = Run(input: m_command)
         m_username = "["
         print("username:", terminator: "")
         if let str = readLine() {
@@ -52,6 +53,9 @@ class Shell {
             case "calc":
                 print("Please give an expression!")
                 break
+            case "run":
+                print("Please give a command!")
+                break
             default:
                 if m_command.cmd.contains("echo ") {
                     m_Echo.echo()
@@ -59,6 +63,11 @@ class Shell {
                     m_Help.help(allOfThem: false)
                 } else if m_command.cmd.contains("calc ") {
                     print(m_Calc.calc())
+                } else if m_command.cmd.contains("run "){
+                    let result = m_Run.run()
+                    if result != nil {
+                        print(result!)
+                    }
                 } else {
                     print("unknown command")
                 }
@@ -72,4 +81,5 @@ class Shell {
     private let m_Echo: Echo
     private let m_Help: Help
     private let m_Calc: Calc
+    private let m_Run: Run
 }

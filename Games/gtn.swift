@@ -1,6 +1,6 @@
 //
 //  gtn.swift
-//  SwiftTest
+//  Shift
 //
 //  Created by Radu Teodor Vatra on 21.07.2022.
 //
@@ -10,7 +10,7 @@ import Darwin
 
 class Gtn {
     func gtn() {
-        let version = 1.0;
+        let version = 1.0
         print("Guess the number version", version)
         let answer = arc4random_uniform(10)
         var m_input: Int = 0

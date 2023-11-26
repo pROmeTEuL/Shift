@@ -1,6 +1,6 @@
 //
 //  calc.swift
-//  
+//  Shift
 //
 //  Created by Radu Teodor Vatra on 18.02.2023.
 //

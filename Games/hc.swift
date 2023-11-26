@@ -1,6 +1,6 @@
 //
 //  hc.swift
-//  SwiftTest
+//  Shift
 //
 //  Created by Radu Teodor Vatra on 21.07.2022.
 //
@@ -10,7 +10,7 @@ import Darwin
 
 class Hc {
     func hc() {
-        let version = 1.0;
+        let version = 1.0
         print("Hot-cold version", version)
         let answer = Int(arc4random_uniform(10))
         var m_input: Int = 0
